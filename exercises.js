@@ -112,12 +112,11 @@ function cacheFunction(cb) {
   var cache=null;
   var oldResult=null;
   return function(num){
-    if(cache===num)return oldResult;
-    else {
+    if(cache!=num){
       cache=num;
       oldResult=cb(num);
-      return oldResult;
     }
+  return oldResult;
   };
 }
 
